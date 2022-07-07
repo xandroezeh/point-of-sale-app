@@ -2,6 +2,10 @@ import {
     MenuFoldOutlined,
     MenuUnfoldOutlined,
     HomeOutlined,
+    UsergroupAddOutlined,
+    DollarOutlined,
+    LogoutOutlined,
+    WindowsOutlined,
   } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
 import React, { useState } from 'react';
@@ -10,7 +14,7 @@ import './layout.css';
   
   const { Header, Sider, Content } = Layout;
   
-  const AppLayout = () => {
+  const AppLayout = ({children}) => {
     const [collapsed, setCollapsed] = useState(false);
   
     return (
@@ -21,10 +25,23 @@ import './layout.css';
 
         
           </div>
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-            <Menu.Item key= {1} icon={<HomeOutlined/>} >
-                <Link  to="/"/> 
+          <Menu theme="dark" mode="inline" defaultSelectedKeys={window.location.pathname}>
+            <Menu.Item key= "/" icon={<HomeOutlined/>} >
+                <Link  to="/">Home </Link> 
             </Menu.Item>
+            <Menu.Item key= "/products" icon={<WindowsOutlined />} >
+                <Link  to="/products">Products </Link> 
+            </Menu.Item>
+            <Menu.Item key= "/bills" icon={<DollarOutlined />} >
+                <Link  to="/bills">Bills </Link> 
+            </Menu.Item>
+            <Menu.Item key= "/customers" icon={<UsergroupAddOutlined />} >
+                <Link  to="/customers">Customers </Link> 
+            </Menu.Item>
+            <Menu.Item key= "/logout" icon={<LogoutOutlined />} >
+                <Link  to="/logout">Logout </Link> 
+            </Menu.Item>
+
           </Menu>
         </Sider>
         <Layout className="site-layout">
@@ -42,7 +59,7 @@ import './layout.css';
               minHeight: 280,
             }}
           >
-            Content
+            {children}
           </Content>
         </Layout>
       </Layout>

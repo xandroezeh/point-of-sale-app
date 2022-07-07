@@ -3,7 +3,9 @@ import AppLayout from '../../components/Layout'
 
 function Home() {
   return (
-    <AppLayout/>
+    <AppLayout> 
+        <h2>Home</h2>
+    </AppLayout>
   )
 }
 
