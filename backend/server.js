@@ -25,7 +25,7 @@ app.use(morgan("dev"));
 
 //routes
 
-app.use('/api/products/', productRouter);
+app.use('/products', productRouter);
 
 //create PORT
 
