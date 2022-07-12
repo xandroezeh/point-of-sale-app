@@ -6,17 +6,25 @@ import {
     DollarOutlined,
     LogoutOutlined,
     WindowsOutlined,
+    ShoppingCartOutlined,
   } from '@ant-design/icons';
 import { Layout, Menu } from 'antd';
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { Link, useNavigate } from 'react-router-dom';
 import './layout.css';
   
   const { Header, Sider, Content } = Layout;
   
   const AppLayout = ({children}) => {
     const [collapsed, setCollapsed] = useState(false);
-  
+    const navigate = useNavigate();
+    const { cartItems } = useSelector(state => state.cart);
+
+    useEffect(() => {
+      localStorage.setItem('cartItems', JSON.stringify(cartItems))
+    }, [cartItems]);
+
     return (
       <Layout>
         <Sider trigger={null} collapsible collapsed={collapsed}>
@@ -50,6 +58,11 @@ import './layout.css';
               className: 'trigger',
               onClick: () => setCollapsed(!collapsed),
             })}
+
+            <div className="cart-items" onClick={() => navigate('/cart')}>
+              <ShoppingCartOutlined />
+              <span className="cart-badge">{cartItems.length}</span>
+            </div>
           </Header>
           <Content
             className="site-layout-background"

@@ -7,3 +7,26 @@
 body{
   font-family: 'Montserrat', sans-serif;
 }
+
+.product-btn {
+  margin-top: 25px;
+  width: 100%;
+}
+
+.product-btn button {
+  display: block;
+  margin: 0 auto;
+  background-color: #001e28;
+  color: #ffffff;
+  box-shadow: 0 0 5px #001e28;
+  transition: all 0.5s;
+  border: none;
+}
+
+.product-btn button:hover {
+  background-color: #ffffff;
+  color: #001e28;
+}
+.ant-card-meta-title {
+  white-space: pre-line !important;
+}

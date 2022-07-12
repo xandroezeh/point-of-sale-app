@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getProducts } from '../../api/api';
 import { Card, Button, Col } from 'antd';
 import {SyncOutlined} from '@ant-design/icons';
+import { addToCart } from '../cart/cartSlice';
 
 export const GetProducts = () => {
   
@@ -14,9 +15,15 @@ export const GetProducts = () => {
 
   const error = useSelector(state => state.products.error);
 
+  const handlerToCart = () =>{
+    dispatch(addToCart({
+      
+    }));
+  }
+
   useEffect(() => {
     if(productsStatus === "idle") {
-      dispatch(getProducts());
+      dispatch(getProducts({}));
     }
   }, [productsStatus, dispatch])
 
@@ -27,16 +34,18 @@ export const GetProducts = () => {
   }else if(productsStatus === "succeeded"){
     return (
       products.map(product => (
-    <Card
-    hoverable
-    style={{ width: 240, marginBottom: 30 }}
-    cover={<img alt={product.name} src={product.image} />}
-    key={product._id}>
-      <Meta title={product.name} description={`₦${product.price}`} style={{height: 200}} />
-      <div className="product-btn">
-        <Button /*onClick={() => handlerToCart()}*/ >Add To Cart</Button> 
-      </div>
-    </Card>
+    <Col xs={24} sm={6} md={12} lg={6} key={product._id}>
+      <Card
+        hoverable
+        style={{ width: 240, marginBottom: 30 }}
+        cover={<img alt={product.name} src={product.image} width={240} height={240}/>}
+      >
+        <Meta title={product.name} description={`₦${product.price}`} style={{height: 60}} />
+          <div className="product-btn">
+            <Button onClick={() => handlerToCart()} >Add To Cart</Button> 
+          </div>
+      </Card>
+    </Col>
 
     ))
     )
