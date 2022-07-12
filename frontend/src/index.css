@@ -30,3 +30,33 @@ body{
 .ant-card-meta-title {
   white-space: pre-line !important;
 }
+
+.ant-layout-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-items {
+  position: relative;
+  margin-right: 25px;
+  cursor: pointer;
+}
+
+.ant-layout-header .anticon svg {
+  font-size: 30px;
+  vertical-align: middle;
+}
+
+.cart-items span {
+  font-size: 18px;
+}
+
+.cart-badge {
+  padding: 5px;
+  top: -10px;
+  right: -25px;
+  background-color: #001e28;
+  color: #ffffff;
+  border-radius: 50px;
+}

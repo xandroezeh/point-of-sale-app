@@ -15,11 +15,21 @@ export const GetProducts = () => {
 
   const error = useSelector(state => state.products.error);
 
-  const handlerToCart = () =>{
-    dispatch(addToCart({
-      
-    }));
-  }
+  // const { cartItems } = useSelector(state => state.cart);
+  
+
+  const handlerToCart = (product) => {
+      dispatch(addToCart({
+        productId: product._id,
+        name: product.name,
+        category: product.category,
+        price: product.price,
+        quantity: 1
+      }));
+
+    }
+  // console.log(cartItems[0].productId);
+
 
   useEffect(() => {
     if(productsStatus === "idle") {
@@ -42,7 +52,7 @@ export const GetProducts = () => {
       >
         <Meta title={product.name} description={`₦${product.price}`} style={{height: 60}} />
           <div className="product-btn">
-            <Button onClick={() => handlerToCart()} >Add To Cart</Button> 
+            <Button onClick={() => handlerToCart(product)} >Add To Cart</Button> 
           </div>
       </Card>
     </Col>
