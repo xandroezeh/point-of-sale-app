@@ -19,20 +19,26 @@ const cartSlice = createSlice({
                 }
                 
             }, 
+        },
+        subFromCart:{
+            reducer(state, action){
+                const { productId, quantity } = action.payload;
+                const inCart = state.cartItems.find(item => item.productId === productId )
+                if(inCart && inCart.quantity!==1){
+                    inCart.quantity -= quantity
+                }
+                
+            }
+        },
+        delFromCart:{
+            reducer(state, action){
+                const { productId } = action.payload;
+                const inCart = state.cartItems.filter(item => item.productId !== productId );
+                state.cartItems = inCart;
+            }
         }
-            // prepare(title, content, userId){
-            //     return{
-            //         payload:{
-            //             id: nanoid(),
-            //             date: new Date().toISOString(),
-            //             title,
-            //             content,
-            //             user: userId,
-            //         }
-            //     }
-            // }
     },
 })
 
 export default cartSlice.reducer;
-export const {addToCart} = cartSlice.actions;
+export const {addToCart, subFromCart, delFromCart} = cartSlice.actions;

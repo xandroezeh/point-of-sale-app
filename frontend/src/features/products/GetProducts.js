@@ -24,6 +24,7 @@ export const GetProducts = () => {
         name: product.name,
         category: product.category,
         price: product.price,
+        image: product.image,
         quantity: 1
       }));
     }
@@ -49,7 +50,7 @@ export const GetProducts = () => {
         style={{ width: 240, marginBottom: 30 }}
         cover={<img alt={product.name} src={product.image} width={240} height={240}/>}
       >
-        <Meta title={product.name} description={`₦${product.price}`} style={{height: 60}} />
+        <Meta title={product.name} description={`₦${product.price}`} style={{height: 90}} />
           <div className="product-btn">
             <Button onClick={() => handlerToCart(product)} >Add To Cart</Button> 
           </div>
