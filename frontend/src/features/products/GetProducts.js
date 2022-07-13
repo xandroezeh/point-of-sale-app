@@ -15,7 +15,7 @@ export const GetProducts = () => {
 
   const error = useSelector(state => state.products.error);
 
-  // const { cartItems } = useSelector(state => state.cart);
+  // const  {cartItems}  = useSelector(state => state.cart);
   
 
   const handlerToCart = (product) => {
@@ -26,7 +26,6 @@ export const GetProducts = () => {
         price: product.price,
         quantity: 1
       }));
-
     }
   // console.log(cartItems[0].productId);
 

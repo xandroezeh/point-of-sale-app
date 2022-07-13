@@ -21,6 +21,8 @@ import './layout.css';
     const navigate = useNavigate();
     const { cartItems } = useSelector(state => state.cart);
 
+    const cartqty = cartItems.reduce(function (acc, obj) { return acc + obj.quantity; }, 0);
+
     useEffect(() => {
       localStorage.setItem('cartItems', JSON.stringify(cartItems))
     }, [cartItems]);
@@ -61,7 +63,7 @@ import './layout.css';
 
             <div className="cart-items" onClick={() => navigate('/cart')}>
               <ShoppingCartOutlined />
-              <span className="cart-badge">{cartItems.length}</span>
+              <span className="cart-badge">{cartqty }</span>
             </div>
           </Header>
           <Content
