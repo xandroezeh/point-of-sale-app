@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getProducts } from '../../api/api.js';
+import { deleteProducts, getProducts } from '../../api/api.js';
 
 const initialState = {
     products: [],
@@ -26,6 +26,11 @@ const productSlice = createSlice({
           .addCase(getProducts.rejected, (state, action) => {
             state.status = "failed";
             state.error = action.error.message;
+          })
+          .addCase(deleteProducts.fulfilled, (state, action) => {
+            const { productId } = action.payload;
+            state.products = state.products.filter(product => product._id !== productId);
+
           })
     }
 })

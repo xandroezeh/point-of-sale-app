@@ -13,7 +13,18 @@ export const addProductController = async(req, res) => {
     try {
         const newProducts = new Product(req.body);
         await newProducts.save();
-        res.status(200).send("Producr Created Successfully");
+        res.status(200).send("Product Created Successfully");
+
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const deleteProductController = async(req, res) => {
+    try {
+        await Product.findOneAndDelete({_id: req.body.productId});
+        res.status(200).send("Product Deleted Successfully");
 
 
     } catch (error) {
