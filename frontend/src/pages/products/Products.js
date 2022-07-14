@@ -4,13 +4,14 @@ import { Table } from 'antd';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteProducts, getProducts } from '../../api/api';
+import { deleteProduct } from '../../features/products/productSlice'
 
 
 function Products() {
   const [popModal, setPopModal] = useState(false);
   const [editProduct, setEditProduct] = useState(false);
 
-  const {products} = useSelector(state => state.products);
+  const { products } = useSelector(state => state.products);
 
   const productsStatus = useSelector(state => state.products.status);
 
@@ -18,12 +19,13 @@ function Products() {
 
   useEffect(() => {
     if(productsStatus === "idle") {
-      dispatch(getProducts({}));
+      dispatch(getProducts());
     }
   }, [productsStatus, dispatch])
 
   const handlerDelete = (record) => {
     dispatch(deleteProducts({productId: record._id}))
+    dispatch(deleteProduct({productId: record._id}))
   }
 console.log(products);
   const columns = [
@@ -43,7 +45,7 @@ console.log(products);
     {
         title: "Action",
         dataIndex: "_id",
-        render:(id, record) => 
+        render:(_id, record) => 
         <div>
           <DeleteOutlined className='cart-action' onClick={() => handlerDelete(record)}/>
           {/* <EditOutlined className='cart-edit' onClick={() => {setEditProduct(record); setPopModal(true)}} /> */}

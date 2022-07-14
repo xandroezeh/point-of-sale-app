@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { deleteProducts, getProducts } from '../../api/api.js';
+import { getProducts } from '../../api/api.js';
 
 const initialState = {
     products: [],
@@ -11,7 +11,13 @@ const productSlice = createSlice({
     name: "products",
     initialState,
     reducers: {
-
+      deleteProduct: {
+        reducer(state, action){
+          const { productId }  = action.payload;
+          const products = state.products.filter(product => product._id !== productId);
+          state.products = products;
+        }
+      }
     },
     extraReducers(builder) {
         builder
@@ -27,12 +33,14 @@ const productSlice = createSlice({
             state.status = "failed";
             state.error = action.error.message;
           })
-          .addCase(deleteProducts.fulfilled, (state, action) => {
-            const { productId } = action.payload;
-            state.products = state.products.filter(product => product._id !== productId);
-
-          })
+          // .addCase(deleteProducts.fulfilled, (state, action) => {
+          //   const id  = action.payload;
+          //   const products = state.products.filter(product => product._id !== id);
+          //   state.products = products;
+          // })
     }
 })
 
-export default productSlice.reducer
+export default productSlice.reducer;
+
+export const { deleteProduct } = productSlice.actions;

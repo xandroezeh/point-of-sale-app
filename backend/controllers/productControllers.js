@@ -23,7 +23,8 @@ export const addProductController = async(req, res) => {
 
 export const deleteProductController = async(req, res) => {
     try {
-        await Product.findOneAndDelete({_id: req.body.productId});
+        const {id} = req.params;
+        await Product.findByIdAndRemove(id);
         res.status(200).send("Product Deleted Successfully");
 
 
