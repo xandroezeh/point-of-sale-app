@@ -1,21 +1,35 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import AppLayout from '../../components/Layout';
-import { Table } from 'antd';
-import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import { Button, Table } from 'antd';
+// import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteProducts, getProducts } from '../../api/api';
-import { deleteProduct } from '../../features/products/productSlice'
+import { addToCart } from '../../features/cart/cartSlice';
+import { getProducts } from '../../api/api';
+// import { deleteProduct } from '../../features/products/productSlice'
+
+
 
 
 function Products() {
-  const [popModal, setPopModal] = useState(false);
-  const [editProduct, setEditProduct] = useState(false);
+  // const [popModal, setPopModal] = useState(false);
+  // const [editProduct, setEditProduct] = useState(false);
 
   const { products } = useSelector(state => state.products);
 
   const productsStatus = useSelector(state => state.products.status);
 
   const dispatch = useDispatch();
+  
+  const handlerToCart = (record) => {
+    dispatch(addToCart({
+      productId: record._id,
+      name: record.name,
+      category: record.category,
+      price: record.price,
+      image: record.image,
+      quantity: 1
+    }));
+  }
 
   useEffect(() => {
     if(productsStatus === "idle") {
@@ -23,10 +37,10 @@ function Products() {
     }
   }, [productsStatus, dispatch])
 
-  const handlerDelete = (record) => {
-    dispatch(deleteProducts({productId: record._id}))
-    dispatch(deleteProduct({productId: record._id}))
-  }
+  // const handlerDelete = (record) => {
+  //   dispatch(deleteProducts({productId: record._id}))
+  //   dispatch(deleteProduct({productId: record._id}))
+  // }
 console.log(products);
   const columns = [
     {
@@ -47,8 +61,9 @@ console.log(products);
         dataIndex: "_id",
         render:(_id, record) => 
         <div>
-          <DeleteOutlined className='cart-action' onClick={() => handlerDelete(record)}/>
+          {/* <DeleteOutlined className='cart-action' onClick={() => handlerDelete(record)}/> */}
           {/* <EditOutlined className='cart-edit' onClick={() => {setEditProduct(record); setPopModal(true)}} /> */}
+          <Button onClick={() => handlerToCart(record)} >Add To Cart</Button> 
         </div>
         
     }
