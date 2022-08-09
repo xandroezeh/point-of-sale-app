@@ -1,7 +1,5 @@
-import React from 'react';
 import "./navbar.css";
 import { Language, NotificationsNone, Settings } from '@mui/icons-material';
-
 export default function Navbar() {
    return ( 
     <div className="navbar">
@@ -21,6 +19,7 @@ export default function Navbar() {
                 <div className="navbarIconContainer">
                     <Settings/>
                 </div>
+                <img src="./images/labcoat.jpg" alt="avatar" className="navAvatar" />
             </div>
 
         </div>
