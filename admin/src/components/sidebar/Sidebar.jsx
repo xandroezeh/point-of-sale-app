@@ -7,7 +7,11 @@ import {
     Inventory2Outlined,
     PointOfSaleOutlined,
     AssessmentOutlined,
-    MailOutlined, } from '@mui/icons-material';
+    MailOutlined,
+    QuestionAnswerOutlined,
+    ChatBubbleOutlineOutlined, 
+    BusinessCenterOutlined,
+    Report } from '@mui/icons-material';
 
 export default function Sidebar(){
     return(
@@ -59,11 +63,11 @@ export default function Sidebar(){
                             Mail
                         </li>
                         <li className="sidebarListItem">
-                            <Timeline className='sidebarIcon'/>
+                            <QuestionAnswerOutlined className='sidebarIcon'/>
                             Feedback
                         </li>
                         <li className="sidebarListItem">
-                            <TrendingUp className='sidebarIcon'/>
+                            <ChatBubbleOutlineOutlined className='sidebarIcon'/>
                             Messages
                         </li>
                     </ul>
@@ -72,7 +76,7 @@ export default function Sidebar(){
                     <h3 className="sidebarTitle">Staff</h3>
                     <ul className="sidebarList">
                         <li className="sidebarListItem">
-                            <LineStyle className='sidebarIcon'/>
+                            <BusinessCenterOutlined className='sidebarIcon'/>
                             Manage
                         </li>
                         <li className="sidebarListItem">
@@ -80,7 +84,7 @@ export default function Sidebar(){
                             Analytics
                         </li>
                         <li className="sidebarListItem">
-                            <TrendingUp className='sidebarIcon'/>
+                            <Report className='sidebarIcon'/>
                             Reports
                         </li>
                     </ul>
