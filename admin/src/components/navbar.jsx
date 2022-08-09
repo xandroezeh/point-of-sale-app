@@ -1,6 +1,6 @@
 import React from 'react';
 import "./navbar.css";
-import { NotificationsNone } from '@mui/icons-material';
+import { Language, NotificationsNone, Settings } from '@mui/icons-material';
 
 export default function Navbar() {
    return ( 
@@ -13,6 +13,13 @@ export default function Navbar() {
                 <div className="navbarIconContainer">
                     <NotificationsNone/>
                     <span className="navbarIconBadge">5</span>
+                </div>
+                <div className="navbarIconContainer">
+                    <Language/>
+                    <span className="navbarIconBadge">5</span>
+                </div>
+                <div className="navbarIconContainer">
+                    <Settings/>
                 </div>
             </div>
 
