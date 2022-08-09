@@ -1,14 +1,15 @@
 import Navbar from "./components/navbar/Navbar";
 import React from 'react';
 import Sidebar from "./components/sidebar/Sidebar";
+import './app.css';
 
 function App() {
   return (
     <div>
       <Navbar/>
-      <div>
+      <div className="container">
         <Sidebar/>
-        other pages
+        <div className="others">other pages</div>
       </div>
     </div>
   );
