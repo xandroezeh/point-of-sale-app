@@ -1,8 +1,8 @@
-import React from 'react'
+import './userList.css'
 
 function UserList() {
   return (
-    <div>UserList</div>
+    <div className='userList'>UserList</div>
   )
 }
 
