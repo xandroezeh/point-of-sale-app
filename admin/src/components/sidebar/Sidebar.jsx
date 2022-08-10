@@ -12,6 +12,7 @@ import {
     ChatBubbleOutlineOutlined, 
     BusinessCenterOutlined,
     Report } from '@mui/icons-material';
+import { Link } from 'react-router-dom';
 
 export default function Sidebar(){
     return(
@@ -37,10 +38,10 @@ export default function Sidebar(){
                 <div className="sidebarMenu">
                     <h3 className="sidebarTitle">Quick Menu</h3>
                     <ul className="sidebarList">
-                        <li className="sidebarListItem">
+                        <Link to="/users" className="link"><li className="sidebarListItem">
                             <PersonOutline className='sidebarIcon'/>
                             Users
-                        </li>
+                        </li></Link>
                         <li className="sidebarListItem">
                             <Inventory2Outlined className='sidebarIcon'/>
                             Products
