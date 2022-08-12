@@ -28,3 +28,60 @@ export const salesdata = [
         sales: 1000000,
     },
   ];
+
+  export const userRows =[
+    {
+        id: 1,
+        name: "Alexander Ezeh",
+        avatar: "../images/labcoat.jpg",
+        email: "xandro101@gmail.com",
+        status: "active",
+        role: "Manager",
+        "sales volume": "₦300,000,000"
+      },
+      {
+        id: 2,
+        name: "Alexander Ezeh",
+        avatar: "./images/labcoat.jpg",
+        email: "xandro101@gmail.com",
+        status: "active",
+        role: "Manager",
+        "sales volume": "₦300,000,000"
+      },
+      {
+        id: 3,
+        name: "Alexander Ezeh",
+        avatar: "./images/labcoat.jpg",
+        email: "xandro101@gmail.com",
+        status: "active",
+        role: "Manager",
+        "sales volume": "₦300,000,000"
+      },
+      {
+        id: 4,
+        name: "Alexander Ezeh",
+        avatar: "./images/labcoat.jpg",
+        email: "xandro101@gmail.com",
+        status: "active",
+        role: "Manager",
+        "sales volume": "₦300,000,000"
+      },
+      {
+        id: 5,
+        name: "Alexander Ezeh",
+        avatar: "./images/labcoat.jpg",
+        email: "xandro101@gmail.com",
+        status: "active",
+        role: "Manager",
+        "sales volume": "₦300,000,000"
+      },
+      {
+        id: 6,
+        name: "Alexander Ezeh",
+        avatar: "./images/labcoat.jpg",
+        email: "xandro101@gmail.com",
+        status: "active",
+        role: "Manager",
+        "sales volume": "₦300,000,000"
+      }
+  ]

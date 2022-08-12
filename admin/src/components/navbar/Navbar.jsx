@@ -19,7 +19,7 @@ export default function Navbar() {
                 <div className="navbarIconContainer">
                     <Settings/>
                 </div>
-                <img src="./images/labcoat.jpg" alt="avatar" className="navAvatar" />
+                <img src="../images/labcoat.jpg" alt="avatar" className="navAvatar" />
             </div>
 
         </div>
