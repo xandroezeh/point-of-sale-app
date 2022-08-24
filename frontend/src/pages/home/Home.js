@@ -1,15 +1,15 @@
-import React from 'react'
-import { Row } from 'antd';
-import AppLayout from '../../components/Layout'
-import GetProducts from '../../features/products/GetProducts';
+import React from "react";
+import { Row } from "antd";
+import AppLayout from "../../components/Layout";
+import GetProducts from "../../features/products/GetProducts";
 function Home() {
   return (
-    <AppLayout> 
+    <AppLayout>
       <Row>
-          <GetProducts/>
+        <GetProducts />
       </Row>
     </AppLayout>
-  )
+  );
 }
 
-export default Home
+export default Home;
