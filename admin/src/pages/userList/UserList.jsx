@@ -1,55 +1,64 @@
-import './userList.css';
+import "./userList.css";
 import { DataGrid } from "@mui/x-data-grid";
-import { useState } from 'react';
-import {userRows} from "../home/salesdata";
-import { Link } from 'react-router-dom';
-import { DeleteOutline } from '@mui/icons-material';
+import { useState } from "react";
+import { userRows } from "../home/salesdata";
+import { Link } from "react-router-dom";
+import { DeleteOutline } from "@mui/icons-material";
 
 function UserList() {
   const [data, setData] = useState(userRows);
   const handleDelete = (id) => {
     setData(data.filter((item) => item.id !== id));
-  }
+  };
   const columns = [
     { field: "id", headerName: "ID", width: 90 },
 
-    { field: "user", 
-      headerName: "User", 
-      width: 300, 
+    {
+      field: "user",
+      headerName: "User",
+      width: 300,
       renderCell: (params) => {
-        return(
+        return (
           <div className="userListUser">
             <img src={params.row.avatar} alt="avatar" className="userListimg" />
             <div className="userListUserInfo">
               <span className="userListName">{params.row.name}</span>
               <span className="userListRole">{params.row.role}</span>
             </div>
-
           </div>
-        )
-      }
+        );
+      },
     },
     { field: "email", headerName: "Email", width: 300 },
     { field: "status", headerName: "Status", width: 160 },
-    { field: "sales volume", headerName: "Sales Volume", width: 150},
-    { field: "action", 
-      headerName: "Action", 
+    { field: "sales volume", headerName: "Sales Volume", width: 150 },
+    {
+      field: "action",
+      headerName: "Action",
       width: 250,
-      renderCell: (params) =>{
-        return(
-          <div className='userListAction'>
-            <Link to={"/users/" + params.row.id} >
+      renderCell: (params) => {
+        return (
+          <div className="userListAction">
+            <Link to={"/users/" + params.row.id}>
               <button className="userListEdit">Edit</button>
             </Link>
-            <DeleteOutline className="userListDelete" onClick={() => handleDelete(params.row.id)}/>
-          </div>  
-        )
-      }
-    }
-
-  ]
+            <DeleteOutline
+              className="userListDelete"
+              onClick={() => handleDelete(params.row.id)}
+            />
+          </div>
+        );
+      },
+    },
+  ];
   return (
-    <div className='userList'>
+    <div className="userList">
+      <div className="userTitleContainer">
+        <h1 className="userTitle">Users</h1>
+        <Link to="/newuser">
+          <button className="userAddButton">Create</button>
+        </Link>
+      </div>
       <DataGrid
         rows={data}
         columns={columns}
@@ -59,7 +68,7 @@ function UserList() {
         checkboxSelection
       />
     </div>
-  )
+  );
 }
 
-export default UserList
+export default UserList;

@@ -1,12 +1,24 @@
 .user{
     flex: 6;
+    padding: 20px;
 }
 
 .userTitleContainer{
     display: flex;
-    width: 100%;
+    align-items: center;
     justify-content: space-between;
 }
+
+.userAddButton {
+    width: 80px;
+    border: none;
+    padding: 5px;
+    background-color: teal;
+    border-radius: 5px;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+  }
 
 .userContainer{
     display: flex;
@@ -23,13 +35,20 @@
 .userShowTop{
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
 }
 
 .userShowTopTitle{
     display: flex;
     flex-direction: column;
     margin-left: 20px;
+}
+
+.userShowUsername{
+    font-weight: 600;
+}
+
+.userShowUserTitle{
+    font-weight: 300;
 }
 
 .userShowImg{
@@ -42,16 +61,25 @@
 .userShowBottom{
     display: flex;
     flex-direction: column;
+    margin-top: 20px;
 }
 
+.userShowTitle{
+    margin: 20px 0px;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(175, 170, 170);
+}
 .userShowInfo{
     margin: 20px 0px;
     display: flex;
     align-items: center;
 }
-
+.userShowIcon{
+    font-size: 16px !important;
+}
 .userShowInfoTitle{
-    margin: 20px 0px;
+    margin-left: 10px;
 }
 
 .userUpdate{
@@ -62,8 +90,35 @@
     margin-left: 30px;
 }
 
+.userUpdateTitle{
+    font-size: 25px;
+    font-weight: 600;
+}
+
 .userUpdateForm{
     display: flex;
+    justify-content: space-between;
+}
+.userUpdateLeft{
+
+}
+
+.userUpdateItem{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.userUpdateItem > label{
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.userUpdateItem > input{
+    border: none;
+    width: 250px;
+    height: 30px;
+    border-bottom: 1px solid gray;
 }
 
 .userUpdateImg{
@@ -71,4 +126,25 @@
     height: 100px;
     border-radius: 10px;
     object-fit: cover;
+}
+
+.userUpdateRight{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.userUpdateIcon{
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.userUpdateButton{
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    background-color: darkblue;
+    color: white;
+    font-weight: 600;
 }
